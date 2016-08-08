@@ -10,10 +10,10 @@ xhr.get(endpoint, function (err, data) {
 
   // In case you're curious
   console.log(data.body) // FYI: data.body is a string
-
+  var data = JSON.parse(data.body)
   // Replace 'Space' below with the response
   var target = document.getElementsByTagName('main')[0]
-  target.innerHTML = greeting({name: data.body})
+  target.innerHTML = greeting({name: data.name})
 })
 
 //   var target = document.getElementsByTagName('main')[0]
