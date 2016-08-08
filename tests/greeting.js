@@ -1,4 +1,4 @@
-var test = require('tape')
+npvar test = require('tape')
 var Handlebars = require('handlebars')
 var fs = require('fs')
 var path = require('path')
