@@ -73,6 +73,7 @@ function isFunction(o){var t=toString.call(o);return"[object Function]"===t||"fu
 
 },{}],25:[function(require,module,exports){
 var trim=require("trim"),forEach=require("for-each"),isArray=function(r){return"[object Array]"===Object.prototype.toString.call(r)};module.exports=function(r){if(!r)return{};var e={};return forEach(trim(r).split("\n"),function(r){var t=r.indexOf(":"),i=trim(r.slice(0,t)).toLowerCase(),o=trim(r.slice(t+1));"undefined"==typeof e[i]?e[i]=o:isArray(e[i])?e[i].push(o):e[i]=[e[i],o]}),e};
+
 },{"for-each":2,"trim":26}],26:[function(require,module,exports){
 function trim(r){return r.replace(/^\s*|\s*$/g,"")}exports=module.exports=trim,exports.left=function(r){return r.replace(/^\s*/,"")},exports.right=function(r){return r.replace(/\s*$/,"")};
 },{}],27:[function(require,module,exports){
@@ -80,5 +81,5 @@ function trim(r){return r.replace(/^\s*|\s*$/g,"")}exports=module.exports=trim,e
 },{"global/window":3,"is-function":24,"parse-headers":25,"xtend":28}],28:[function(require,module,exports){
 function extend(){for(var r={},e=0;e<arguments.length;e++){var t=arguments[e];for(var n in t)hasOwnProperty.call(t,n)&&(r[n]=t[n])}return r}module.exports=extend;var hasOwnProperty=Object.prototype.hasOwnProperty;
 },{}],29:[function(require,module,exports){
-var HandlebarsCompiler=require("hbsfy/runtime");module.exports=HandlebarsCompiler.template({compiler:[7,">= 4.0.0"],main:function(l,e,a,n,t){var u,i=null!=e?e:{},r=a.helperMissing,m="function",o=l.escapeExpression;return"<h1>Hello I'm "+o((u=null!=(u=a.name||(null!=e?e.name:e))?u:r,typeof u===m?u.call(i,{name:"name",hash:{},data:t}):u))+"!</h1>\ngit s\n<h1> I am currently at "+o((u=null!=(u=a.longitude||(null!=e?e.longitude:e))?u:r,typeof u===m?u.call(i,{name:"longitude",hash:{},data:t}):u))+" longitude!</h1>\n\n<h1> I am currently at "+o((u=null!=(u=a.latitude||(null!=e?e.latitude:e))?u:r,typeof u===m?u.call(i,{name:"latitude",hash:{},data:t}):u))+" latitude!</h1>\n"},useData:!0});
+var HandlebarsCompiler=require("hbsfy/runtime");module.exports=HandlebarsCompiler.template({compiler:[7,">= 4.0.0"],main:function(l,e,a,n,t){var u,i=null!=e?e:{},r=a.helperMissing,m="function",o=l.escapeExpression;return"<h1>Hello I'm "+o((u=null!=(u=a.name||(null!=e?e.name:e))?u:r,typeof u===m?u.call(i,{name:"name",hash:{},data:t}):u))+"!</h1>\n\n<h1> I am currently at "+o((u=null!=(u=a.longitude||(null!=e?e.longitude:e))?u:r,typeof u===m?u.call(i,{name:"longitude",hash:{},data:t}):u))+" longitude!</h1>\n\n<h1> I am currently at "+o((u=null!=(u=a.latitude||(null!=e?e.latitude:e))?u:r,typeof u===m?u.call(i,{name:"latitude",hash:{},data:t}):u))+" latitude!</h1>\n"},useData:!0});
 },{"hbsfy/runtime":23}]},{},[1]);
