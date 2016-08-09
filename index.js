@@ -12,7 +12,7 @@ xhr.get(endpoint, function (err, data) {
   var target = document.getElementsByTagName('main')[0]
   target.innerHTML = greeting({name: data.name})
   target.innerHTML = greeting({longitude: data.longitude})
-  target.innerHTML = greeting({latitude: data.latitude})
+  target.innerHTML = greeting({latitude: data.latitude, name: data.name})
 })
 
 
