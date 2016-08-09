@@ -1,8 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var xhr=require("xhr"),greeting=require("./views/greeting.hbs"),endpoint="https://api.wheretheiss.at/v1/satellites/25544";xhr.get(endpoint,function(e,n){e&&console.error(e),console.log(n.body);var n=JSON.parse(n.body),r=document.getElementsByTagName("main")[0];r.innerHTML=greeting({location:n.longitude})});
+var xhr=require("xhr"),greeting=require("./views/greeting.hbs"),endpoint="https://api.wheretheiss.at/v1/satellites/25544";xhr.get(endpoint,function(e,n){e&&console.error(e),console.log(n.body);var n=JSON.parse(n.body),r=document.getElementsByTagName("main")[0];r.innerHTML=greeting({name:n.name}),r.innerHTML=greeting({longitude:n.longitude})});
 },{"./views/greeting.hbs":29,"xhr":27}],2:[function(require,module,exports){
 function forEach(r,t,o){if(!isFunction(t))throw new TypeError("iterator must be a function");arguments.length<3&&(o=this),"[object Array]"===toString.call(r)?forEachArray(r,t,o):"string"==typeof r?forEachString(r,t,o):forEachObject(r,t,o)}function forEachArray(r,t,o){for(var n=0,a=r.length;n<a;n++)hasOwnProperty.call(r,n)&&t.call(o,r[n],n,r)}function forEachString(r,t,o){for(var n=0,a=r.length;n<a;n++)t.call(o,r.charAt(n),n,r)}function forEachObject(r,t,o){for(var n in r)hasOwnProperty.call(r,n)&&t.call(o,r[n],n,r)}var isFunction=require("is-function");module.exports=forEach;var toString=Object.prototype.toString,hasOwnProperty=Object.prototype.hasOwnProperty;
-
 },{"is-function":24}],3:[function(require,module,exports){
 (function (global){
 "undefined"!=typeof window?module.exports=window:"undefined"!=typeof global?module.exports=global:"undefined"!=typeof self?module.exports=self:module.exports={};
@@ -70,9 +69,9 @@ module.exports=require("./dist/cjs/handlebars.runtime").default;
 module.exports=require("handlebars/runtime").default;
 },{"handlebars/runtime":22}],24:[function(require,module,exports){
 function isFunction(o){var t=toString.call(o);return"[object Function]"===t||"function"==typeof o&&"[object RegExp]"!==t||"undefined"!=typeof window&&(o===window.setTimeout||o===window.alert||o===window.confirm||o===window.prompt)}module.exports=isFunction;var toString=Object.prototype.toString;
+
 },{}],25:[function(require,module,exports){
 var trim=require("trim"),forEach=require("for-each"),isArray=function(r){return"[object Array]"===Object.prototype.toString.call(r)};module.exports=function(r){if(!r)return{};var e={};return forEach(trim(r).split("\n"),function(r){var t=r.indexOf(":"),i=trim(r.slice(0,t)).toLowerCase(),o=trim(r.slice(t+1));"undefined"==typeof e[i]?e[i]=o:isArray(e[i])?e[i].push(o):e[i]=[e[i],o]}),e};
-
 },{"for-each":2,"trim":26}],26:[function(require,module,exports){
 function trim(r){return r.replace(/^\s*|\s*$/g,"")}exports=module.exports=trim,exports.left=function(r){return r.replace(/^\s*/,"")},exports.right=function(r){return r.replace(/\s*$/,"")};
 
@@ -82,5 +81,5 @@ function trim(r){return r.replace(/^\s*|\s*$/g,"")}exports=module.exports=trim,e
 function extend(){for(var r={},e=0;e<arguments.length;e++){var t=arguments[e];for(var n in t)hasOwnProperty.call(t,n)&&(r[n]=t[n])}return r}module.exports=extend;var hasOwnProperty=Object.prototype.hasOwnProperty;
 
 },{}],29:[function(require,module,exports){
-var HandlebarsCompiler=require("hbsfy/runtime");module.exports=HandlebarsCompiler.template({compiler:[7,">= 4.0.0"],main:function(a,l,n,e,o){var i,t=null!=l?l:{},r=n.helperMissing,s="function",m=a.escapeExpression;return"<h1>Hello I'm "+m((i=null!=(i=n.name||(null!=l?l.name:l))?i:r,typeof i===s?i.call(t,{name:"name",hash:{},data:o}):i))+"!</h1>\ngit s\n<h1> My location is "+m((i=null!=(i=n.location||(null!=l?l.location:l))?i:r,typeof i===s?i.call(t,{name:"location",hash:{},data:o}):i))+"! </h1>\n"},useData:!0});
+var HandlebarsCompiler=require("hbsfy/runtime");module.exports=HandlebarsCompiler.template({compiler:[7,">= 4.0.0"],main:function(e,l,n,a,t){var r,u=null!=l?l:{},i=n.helperMissing,o="function",m=e.escapeExpression;return"<h1>Hello I'm "+m((r=null!=(r=n.name||(null!=l?l.name:l))?r:i,typeof r===o?r.call(u,{name:"name",hash:{},data:t}):r))+"!</h1>\ngit s\n<h1> I am currently at "+m((r=null!=(r=n.longitude||(null!=l?l.longitude:l))?r:i,typeof r===o?r.call(u,{name:"longitude",hash:{},data:t}):r))+" longitude!</h1>\n"},useData:!0});
 },{"hbsfy/runtime":23}]},{},[1]);
