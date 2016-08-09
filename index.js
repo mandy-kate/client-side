@@ -10,8 +10,9 @@ xhr.get(endpoint, function (err, data) {
   console.log(data.body) // FYI: data.body is a string
   var data = JSON.parse(data.body)
   var target = document.getElementsByTagName('main')[0]
-  target.innerHTML = greeting({name: data.name}),
+  target.innerHTML = greeting({name: data.name})
   target.innerHTML = greeting({longitude: data.longitude})
+  target.innerHTML = greeting({latitude: data.latitude})
 })
 
 
