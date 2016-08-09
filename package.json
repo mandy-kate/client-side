@@ -21,5 +21,8 @@
     "tape": "^4.6.0",
     "uglifyify": "^3.0.1",
     "xhr": "^2.2.0"
+  },
+  "dependencies": {
+    "cheerio": "^0.20.0"
   }
 }
