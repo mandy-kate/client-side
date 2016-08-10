@@ -11,13 +11,8 @@ xhr.get(endpoint, function (err, data) {
   var data = JSON.parse(data.body)
   var target = document.getElementsByTagName('main')[0]
   target.innerHTML = greeting({name: data.name, id: 25544, latitude: data.latitude, longitude: data.longitude})
+  document.getElementById('button')
+    .addEventListener('click', makeBlue)
 })
 
 
-//   // Accessing longitude / latitude by ID
-//   console.log(data.body) // FYI: data.body is a string
-//   var data = JSON.parse(data.body)
-//   // Replace 'Space' below with the response
-//   var target = document.getElementsByTagName('main')[0]
-//   target.innerHTML = greeting({longitude: 25544.longitude})
-// })
