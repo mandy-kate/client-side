@@ -12,7 +12,9 @@ xhr.get(endpoint, function (err, data) {
   var target = document.getElementsByTagName('main')[0]
   target.innerHTML = greeting({name: data.name, id: 25544, latitude: data.latitude, longitude: data.longitude})
   document.getElementById('button')
-    .addEventListener('click', makeBlue)
+    .addEventListener("click", function() {
+      this.style.backgroundColor = "blue";
+    })
 })
 
 
